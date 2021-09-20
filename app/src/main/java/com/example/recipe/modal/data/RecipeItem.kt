@@ -1,5 +1,8 @@
 package com.example.recipe.modal.data
 
+import androidx.room.Entity
+
+@Entity
 data class RecipeItem(
     val imageURL: String,
     val ingredients: List<Ingredient>,

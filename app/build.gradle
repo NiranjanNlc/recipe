@@ -62,4 +62,13 @@ dependencies {
     implementation "androidx.room:room-ktx:$rootProject.roomVersion"
     kapt "androidx.room:room-compiler:$rootProject.roomVersion"
     androidTestImplementation "androidx.room:room-testing:$rootProject.roomVersion"
+    //chimpview
+    //implementation "com.github.pchmn:MaterialChipsInput:1.0.8"
+    //implementation 'com.github.pchmn:MaterialChipsInput:1.0.5'
+    //Material Chips
+    //implementation 'com.github.karanatwal:MaterialChipsInput:2.0.0'
+
+
+
+
 }
