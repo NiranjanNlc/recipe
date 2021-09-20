@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="1dp"
+    >
+
+
+  <com.facebook.drawee.view.SimpleDraweeView
+      android:id="@+id/browser_cell_image"
+      android:layout_width="match_parent"
+      android:layout_height="200dp"
+      app:placeholderImage="@drawable/ic_launcher_background"
+      app:placeholderImageScaleType="center"
+
+      />
+
+  <TextView
+      android:id="@+id/browser_cell_title"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:background="@color/white80"
+      android:ellipsize="end"
+      android:gravity="center"
+      android:maxLines="1"
+      android:textAppearance="@style/Base.TextAppearance.AppCompat.Body2"
+      app:layout_constraintLeft_toLeftOf="parent"
+      app:layout_constraintRight_toRightOf="parent"
+      app:layout_constraintTop_toTopOf="@id/browser_cell_image"
+      tools:text="Title"
+      />
+
+
+  <TextView
+      android:id="@+id/browser_cell_time"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:background="@color/white80"
+      android:ellipsize="end"
+      android:gravity="center"
+      android:maxLines="1"
+      android:textAppearance="@style/Base.TextAppearance.AppCompat.Body1"
+      app:layout_constraintBottom_toBottomOf="@id/browser_cell_image"
+      app:layout_constraintLeft_toLeftOf="parent"
+      app:layout_constraintRight_toRightOf="parent"
+      tools:text="10 minutes"
+
+
+      />
+
+  <TextView
+      android:id="@+id/browser_cell_quantity"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:background="@color/white80"
+      android:ellipsize="end"
+      android:gravity="center"
+      android:maxLines="1"
+      android:textAppearance="@style/Base.TextAppearance.AppCompat.Body1"
+      app:layout_constraintBottom_toTopOf="@id/browser_cell_time"
+      app:layout_constraintLeft_toLeftOf="parent"
+      app:layout_constraintRight_toRightOf="parent"
+      tools:text="3 ingredients"
+      />
+
+  <View
+      android:id="@+id/browser_cell_overlay"
+      android:layout_width="0dp"
+      android:layout_height="0dp"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      />
+</android.support.constraint.ConstraintLayout>
