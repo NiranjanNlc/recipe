@@ -1,5 +1,6 @@
 package com.example.recipe.modal.reterofit
 
+import com.example.recipe.util.BaseUrl
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import retrofit2.Retrofit
@@ -30,14 +31,14 @@ public interface RetrofitService {
 
         private fun createReterofit(): RetrofitService
         {
-            createHttPRequest()
             val retrofit = Retrofit.Builder()
-                .baseUrl("https://yummly2.p.rapidapi.com/")
+                .baseUrl(BaseUrl.YuMMLEY.url)
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(createHttPRequest())
                 .build()
             return retrofit.create(RetrofitService::class.java)
         }
+
 
         private fun createHttPRequest(): OkHttpClient {
             val httpClient = OkHttpClient.Builder()
