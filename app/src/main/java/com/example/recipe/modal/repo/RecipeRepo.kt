@@ -1,9 +1,7 @@
 package com.example.recipe.modal.repo
 
 import androidx.lifecycle.MutableLiveData
-import com.example.recipe.modal.data.Recipe
 import com.example.recipe.modal.dataItem.MealList
-import com.example.recipe.modal.dataItem.MealX
 import com.example.recipe.modal.dataItem.Reciepe
 import com.example.recipe.modal.reterofit.RetrofitService
 import retrofit2.Call
@@ -12,8 +10,8 @@ import retrofit2.Response
 
 class RecipeRepo(val  service:RetrofitService)
 {
-        var reciepe= MutableLiveData<List<MealX>>()
-        val recipeList  = MutableLiveData<List<Recipe>>()
+        var reciepe= MutableLiveData<Reciepe>()
+        val recipeList  = MutableLiveData<MealList>()
 
         fun getReciepeList()
         {
@@ -23,7 +21,8 @@ class RecipeRepo(val  service:RetrofitService)
 
                 override fun onResponse(call: Call<MealList>?, response: Response<MealList>?)
                 {
-                    println(" ")
+                    recipeList.postValue(response?.body())
+                    println(recipeList.toString())
 
                 }
 
@@ -41,7 +40,7 @@ class RecipeRepo(val  service:RetrofitService)
              response.enqueue(object : Callback<Reciepe>
              {
                  override fun onResponse(call: Call<Reciepe>?, response: Response<Reciepe>?) {
-
+                        reciepe.postValue(response?.body())
                  }
 
                  override fun onFailure(call: Call<Reciepe>?, t: Throwable?) {
@@ -51,5 +50,4 @@ class RecipeRepo(val  service:RetrofitService)
              })
 
          }
-
 }
