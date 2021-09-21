@@ -1,13 +1,20 @@
 package com.example.recipe.modal.reterofit
 
+import okhttp3.OkHttpClient
+import okhttp3.Request
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
+import okhttp3.Interceptor
+
+
+
 
 public interface RetrofitService {
 
-    @GET("search?country=Nepal")
-    fun getAllUniversity(): retrofit2.Call<List<Map<String, Any>>>
+    @GET("feeds/list?start=0&limit=18&tag=list.recipe.popular")
+    fun getReciepe(): retrofit2.Call<List<Map<String, Any>>>
+
 
     companion object {
 
@@ -16,13 +23,37 @@ public interface RetrofitService {
         public fun getInstance(): RetrofitService {
 
             if (retrofitService == null) {
-                val retrofit = Retrofit.Builder()
-                    .baseUrl("http://universities.hipolabs.com/")
-                    .addConverterFactory(GsonConverterFactory.create())
-                    .build()
-                retrofitService = retrofit.create(RetrofitService::class.java)
+                createReterofit()
             }
             return retrofitService!!
         }
+
+        private fun createReterofit(): RetrofitService
+        {
+            createHttPRequest()
+            val retrofit = Retrofit.Builder()
+                .baseUrl("https://yummly2.p.rapidapi.com/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .client(createHttPRequest())
+                .build()
+            return retrofit.create(RetrofitService::class.java)
+        }
+
+        private fun createHttPRequest(): OkHttpClient {
+            val httpClient = OkHttpClient.Builder()
+            httpClient.addInterceptor { chain ->
+                val request = chain.request().
+                newBuilder()
+                .addHeader("x-rapidapi-host", "yummly2.p.rapidapi.com")
+                .addHeader("x-rapidapi-key", "undefined")
+                .addHeader("parameter", "value").
+                build()
+                chain.proceed(request)
+            }
+
+            return httpClient.build()
+
+        }
+
     }
 }
