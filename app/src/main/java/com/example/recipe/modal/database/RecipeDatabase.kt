@@ -4,13 +4,16 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import androidx.room.TypeConverters
 import androidx.sqlite.db.SupportSQLiteDatabase
 import com.example.recipe.modal.dao.ReciepeDao
+import com.example.recipe.modal.data.ConverterClass
 import com.example.recipe.modal.data.RecipeItem
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
 @Database(entities = [RecipeItem::class], version = 1)
+@TypeConverters(ConverterClass::class)
 abstract class ReciepeDataBase : RoomDatabase() {
     abstract fun reciepedDao(): ReciepeDao
     private class ReciepeDatabaseCallback(
