@@ -50,9 +50,9 @@ dependencies {
     // Testing
     testImplementation "junit:junit:$rootProject.junitVersion"
     androidTestImplementation "androidx.arch.core:core-testing:$rootProject.coreTestingVersion"
-    androidTestImplementation ("androidx.test.espresso:espresso-core:$rootProject.espressoVersion", {
-        exclude group: 'com.android.support', module: 'support-annotations'
-    })
+//    androidTestImplementation ("androidx.test.espresso:espresso-core:$rootProject.espressoVersion", {
+//        exclude group: 'com.android.support', module: 'support-annotations'
+//    })
     androidTestImplementation "androidx.test.ext:junit:$rootProject.androidxJunitVersion"
     //retertofit
     implementation 'com.squareup.retrofit2:retrofit:2.0.0'

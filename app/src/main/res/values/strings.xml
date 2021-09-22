@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Recipe</string>
+    <string name="browser_empty">loading____________</string>
 </resources>

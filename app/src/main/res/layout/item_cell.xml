@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -7,22 +7,20 @@
     android:layout_height="match_parent"
     android:padding="1dp"
     >
-
-
-  <com.facebook.drawee.view.SimpleDraweeView
+<!--  < com.facebook.drawee.view.SimpleDraweeView-->
+  <ImageView
       android:id="@+id/browser_cell_image"
       android:layout_width="match_parent"
       android:layout_height="200dp"
       app:placeholderImage="@drawable/ic_launcher_background"
       app:placeholderImageScaleType="center"
-
       />
 
   <TextView
       android:id="@+id/browser_cell_title"
       android:layout_width="0dp"
       android:layout_height="wrap_content"
-      android:background="@color/white80"
+      android:background="@color/white"
       android:ellipsize="end"
       android:gravity="center"
       android:maxLines="1"
@@ -38,7 +36,7 @@
       android:id="@+id/browser_cell_time"
       android:layout_width="0dp"
       android:layout_height="wrap_content"
-      android:background="@color/white80"
+      android:background="@color/white"
       android:ellipsize="end"
       android:gravity="center"
       android:maxLines="1"
@@ -55,7 +53,7 @@
       android:id="@+id/browser_cell_quantity"
       android:layout_width="0dp"
       android:layout_height="wrap_content"
-      android:background="@color/white80"
+      android:background="@color/white"
       android:ellipsize="end"
       android:gravity="center"
       android:maxLines="1"
@@ -75,4 +73,4 @@
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toTopOf="parent"
       />
-</android.support.constraint.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
