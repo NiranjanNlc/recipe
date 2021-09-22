@@ -15,6 +15,14 @@ class MainActivity : AppCompatActivity() {
         val repository = RecipeRepo(RetrofitService.getInstance())
         val sampleViewModal= ViewModalFactory( repository).create(ReciepeViewModal::class.java)
         sampleViewModal.getReciepeList()
-        println(" this data "+ sampleViewModal.reciepList.toString())
+        sampleViewModal.reciepList.observe(this,{
+            println(" this data "+ sampleViewModal.reciepList.value.toString())
+        })
+        sampleViewModal.getReciepeParticular("52807")
+        sampleViewModal.reciepe.observe(this,{
+            println(" this data "+ sampleViewModal.reciepe.value.toString())
+        }
+        )
+
     }
 }

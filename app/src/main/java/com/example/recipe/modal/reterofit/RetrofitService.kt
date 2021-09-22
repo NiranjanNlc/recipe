@@ -21,7 +21,7 @@ public interface RetrofitService {
     @GET("filter.php?a=Indian")
     fun getReciepeList(): retrofit2.Call<MealList>
     @GET("search.php")
-    fun getReciepeParticlular( @Path("i") reciepe: String?): retrofit2.Call<Reciepe>
+    fun getReciepeParticlular( @Path("s") reciepe: String?): retrofit2.Call<Reciepe>
 
 
     companion object {
