@@ -4,7 +4,7 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import androidx.room.TypeConverter
 
-@Entity
+@Entity(tableName = "reciepe")
 data class RecipeItem(
     val imageURL: String,
     val ingredients: List<Ingredient>,
