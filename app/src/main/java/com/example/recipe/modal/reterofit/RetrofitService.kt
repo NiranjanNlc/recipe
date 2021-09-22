@@ -12,6 +12,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
 import okhttp3.Interceptor
 import retrofit2.http.Path
+import retrofit2.http.Query
 
 
 public interface RetrofitService {
@@ -20,8 +21,8 @@ public interface RetrofitService {
     fun getReciepe(): retrofit2.Call<List<Map<String, Any>>>
     @GET("filter.php?a=Indian")
     fun getReciepeList(): retrofit2.Call<MealList>
-    @GET("search.php")
-    fun getReciepeParticlular( @Path("s") reciepe: String?): retrofit2.Call<Reciepe>
+    @GET("lookup.php")
+    fun getReciepeParticlular( @Query("i") reciepe: String?): retrofit2.Call<Reciepe>
 
 
     companion object {
