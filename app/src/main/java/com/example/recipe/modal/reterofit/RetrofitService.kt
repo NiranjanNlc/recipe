@@ -31,7 +31,7 @@ public interface RetrofitService {
         public fun getInstance(): RetrofitService {
 
             if (retrofitService == null) {
-                createReterofit()
+                retrofitService = createReterofit()
             }
             return retrofitService!!
         }
