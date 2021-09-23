@@ -38,6 +38,7 @@ android {
             {
                 enabled true
             }
+    compileSdkVersion 27
 }
 
 dependencies {
