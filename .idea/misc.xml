@@ -3,6 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/layout/content_scrolling.xml" value="0.19322916666666667" />
+        <entry key="app/src/main/res/layout/full_recipe.xml" value="0.178125" />
         <entry key="app/src/main/res/layout/item_recipe.xml" value="0.1" />
         <entry key="app/src/main/res/layout/reciepe_list.xml" value="0.1" />
       </map>

@@ -48,6 +48,7 @@ dependencies {
     // UI
     implementation "androidx.constraintlayout:constraintlayout:$rootProject.constraintLayoutVersion"
     implementation "com.google.android.material:material:$rootProject.materialVersion"
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
 
     // Testing
     testImplementation "junit:junit:$rootProject.junitVersion"

@@ -8,6 +8,10 @@ class ReciepeViewModal(val repository: RecipeRepo) : ViewModel()
     val reciepList = repository.recipeList
     val reciepe = repository.reciepe
 
+    init {
+        repository.getReciepeList()
+        println(" messsages initated ................")
+    }
     fun getReciepeList()
     {
       repository.getReciepeList()

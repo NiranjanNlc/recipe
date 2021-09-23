@@ -13,7 +13,12 @@ class ReciepeListAdapter:
 {
 
     class RecipeListViewHolder(var items: ItemRecipeBinding) : RecyclerView.ViewHolder(items.root)
-
+    {
+        fun bind(mealItem: MealItem)
+        {
+            items.items = mealItem
+        }
+    }
 
     companion object {
         val MEAL_COMPARATOR = object : DiffUtil.ItemCallback<MealItem>() {
@@ -39,9 +44,13 @@ class ReciepeListAdapter:
     }
   override fun onBindViewHolder(holder: RecipeListViewHolder, position: Int)
   {
-      holder.items.items = getItem(position)
+      val mealItem = getItem(position)
+      println( " see thid " + mealItem.strMeal)
+      holder.bind(mealItem)
+     //  holder.bind(getItem(position))
+      //holder.items.items = getItem(position)
+    //  holder.items.items = getItem(position)
       holder.items.executePendingBindings()
-
   }
 
 }
