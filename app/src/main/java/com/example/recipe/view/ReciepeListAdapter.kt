@@ -1,17 +1,20 @@
 package com.example.recipe.view
 
-import android.view.View
+import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.example.recipe.databinding.ItemRecipeBinding
 import com.example.recipe.modal.dataItem.MealItem
 
 class ReciepeListAdapter:
-    ListAdapter<MealItem,ReciepeListAdapter.RecciepeListViewHolder> (MEAL_COMPARATOR)
+    ListAdapter<MealItem,ReciepeListAdapter.RecipeListViewHolder> (MEAL_COMPARATOR)
 {
 
-    class RecciepeListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
+    class RecipeListViewHolder(var items: ItemRecipeBinding) : RecyclerView.ViewHolder(items.root)
+
+
     companion object {
         val MEAL_COMPARATOR = object : DiffUtil.ItemCallback<MealItem>() {
             override fun areItemsTheSame(oldItem: MealItem, newItem: MealItem): Boolean {
@@ -26,13 +29,19 @@ class ReciepeListAdapter:
         }
 
     }
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecciepeListViewHolder
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecipeListViewHolder
     {
-        TODO("Not yet implemented")
+        println("On view create ")
+        val inflater = LayoutInflater.from(parent.context)
+        val binding = ItemRecipeBinding.inflate(inflater)
+        return RecipeListViewHolder(binding)
+
     }
-  override fun onBindViewHolder(holder: RecciepeListViewHolder, position: Int)
+  override fun onBindViewHolder(holder: RecipeListViewHolder, position: Int)
   {
-        TODO("Not yet implemented")
+      holder.items.items = getItem(position)
+      holder.items.executePendingBindings()
+
   }
 
 }

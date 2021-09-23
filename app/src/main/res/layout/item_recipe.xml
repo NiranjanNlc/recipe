@@ -1,4 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="items"
+            type="com.example.recipe.modal.dataItem.MealItem" />
+    </data>
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -10,7 +17,7 @@
         android:id="@+id/browser_cell_image"
         android:layout_width="match_parent"
         android:layout_height="200dp"
-       android:src="@drawable/ic_launcher_background"
+       android:src="@{items.strMealThumb}"
          />
     <TextView
         android:id="@+id/browser_cell_title"
@@ -20,6 +27,7 @@
         android:ellipsize="end"
         android:gravity="center"
         android:maxLines="1"
+        android:text="@{items.strMeal}"
         android:textAppearance="@style/Base.TextAppearance.AppCompat.Body2"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -41,8 +49,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         tools:text="10 minutes"
-
-
+        android:text="10 minutes"
         />
 
     <TextView
@@ -58,6 +65,8 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         tools:text="3 ingredients"
+        android:text="3 ingrediets"
         />
 
 </LinearLayout>
+</layout>

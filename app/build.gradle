@@ -35,10 +35,10 @@ android {
             {
                 enabled true
             }
-    viewBinding
-            {
-                enabled true
-            }
+//    viewBinding
+//            {
+//                enabled true
+//            }
     compileSdkVersion 28
 }
 
