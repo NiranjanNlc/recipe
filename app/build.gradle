@@ -62,7 +62,7 @@ dependencies {
     //room service
     // Room components
     implementation "androidx.room:room-ktx:$rootProject.roomVersion"
-    kapt "androidx.room:room-compiler:$rootProject.roomVersion"
+    annotationProcessor "androidx.room:room-compiler:$rootProject.roomVersion"
     androidTestImplementation "androidx.room:room-testing:$rootProject.roomVersion"
     //chimpview
     //implementation "com.github.pchmn:MaterialChipsInput:1.0.8"
