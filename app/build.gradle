@@ -13,6 +13,7 @@ android {
         targetSdk 31
         versionCode 1
         versionName "1.0"
+        compileSdkVersion 27
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
@@ -38,7 +39,7 @@ android {
             {
                 enabled true
             }
-    compileSdkVersion 27
+    compileSdkVersion 28
 }
 
 dependencies {
