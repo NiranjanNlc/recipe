@@ -1,17 +1,12 @@
 package com.example.recipe.modal.reterofit
 
-import com.example.recipe.modal.dataItem.Meal
 import com.example.recipe.modal.dataItem.MealList
-import com.example.recipe.modal.dataItem.MealX
 import com.example.recipe.modal.dataItem.Reciepe
 import com.example.recipe.util.BaseUrl
 import okhttp3.OkHttpClient
-import okhttp3.Request
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
-import okhttp3.Interceptor
-import retrofit2.http.Path
 import retrofit2.http.Query
 
 
