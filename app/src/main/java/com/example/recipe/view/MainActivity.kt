@@ -11,7 +11,7 @@ import com.example.recipe.viewmodal.ViewModalFactory
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.item_recipe)
+        setContentView(R.layout.reciepe_list)
         val repository = RecipeRepo(RetrofitService.getInstance())
         val sampleViewModal= ViewModalFactory( repository).create(ReciepeViewModal::class.java)
         sampleViewModal.getReciepeList()

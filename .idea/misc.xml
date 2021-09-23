@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="app/src/main/res/layout/item_recipe.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/reciepe_list.xml" value="0.1" />
       </map>
     </option>
   </component>

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.MainActivity"
+    >
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/Widget.MaterialComponents.AppBarLayout.PrimarySurface"
+        >
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/browser_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            app:layout_scrollFlags="scroll|enterAlways"
+            >
+        </androidx.appcompat.widget.Toolbar>
+
+        <LinearLayout
+            android:id="@+id/browser_filter_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="2"
+            app:layout_scrollFlags="scroll|enterAlways"
+            >
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/browser_filter_difficulty"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:minWidth="48dp"
+                android:minHeight="48dp"
+                app:backgroundColor="@color/colorAccent"
+                tools:label="Easy" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/browser_filter_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:minWidth="48dp"
+                android:minHeight="48dp"
+
+                app:backgroundColor="@color/colorAccent"
+                tools:label="Easy" />
+        </LinearLayout>
+
+        <ProgressBar
+            android:id="@+id/browser_progress"
+            style="@style/Base.Widget.AppCompat.ProgressBar.Horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="6dp"
+            android:indeterminate="true"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            app:layout_scrollFlags="scroll|enterAlways"
+
+            />
+    </com.google.android.material.appbar.AppBarLayout>
+
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        >
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/browser_recycler"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+
+            />
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
