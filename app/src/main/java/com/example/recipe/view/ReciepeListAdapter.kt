@@ -13,15 +13,17 @@ import com.example.recipe.modal.dataItem.MealItem
 class ReciepeListAdapter constructor(val context : Context, val itemClickListener: ItemClickListener):
     ListAdapter<MealItem,ReciepeListAdapter.RecipeListViewHolder> (MEAL_COMPARATOR)
 {
+
     interface ItemClickListener{
         fun onItemClick(position: Int)
-        fun onLongClick(position: Int)
+        fun getPosition(position: String)
     }
 
    inner  class RecipeListViewHolder(var items: ItemRecipeBinding): RecyclerView.ViewHolder(items.root)
     {
         init {
             items.root.setOnClickListener{
+                items.items?.idMeal?.let { it1 -> itemClickListener.getPosition(it1) }
                 itemClickListener.onItemClick(adapterPosition)
             }
             }

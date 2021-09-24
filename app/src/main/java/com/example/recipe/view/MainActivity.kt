@@ -4,7 +4,6 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.recipe.R
 import com.example.recipe.databinding.ActivityMainBinding
@@ -20,6 +19,7 @@ class MainActivity : AppCompatActivity(),ReciepeListAdapter.ItemClickListener
     private lateinit var mainBinding: ActivityMainBinding
     private lateinit var sampleViewModal: ReciepeViewModal
     private lateinit var adapter:ReciepeListAdapter
+    private lateinit var reciepeid: String;
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         initaliseRecipeList()
@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity(),ReciepeListAdapter.ItemClickListener
     {
         mainBinding = DataBindingUtil.setContentView(this, R.layout.activity_main)
         val transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.contentContainer,ReciepeFragment());
+        transaction.replace(R.id.contentContainer,ReciepeFragment(reciepeid));
         transaction.addToBackStack(null);
         transaction.commit();
     }
@@ -83,7 +83,9 @@ class MainActivity : AppCompatActivity(),ReciepeListAdapter.ItemClickListener
         setFragmentForFullRecipe()
     }
 
-    override fun onLongClick(position: Int) {
-        TODO("Not yet implemented")
+    override fun getPosition(position: String)
+    {
+        reciepeid = position.toString();
     }
+
 }

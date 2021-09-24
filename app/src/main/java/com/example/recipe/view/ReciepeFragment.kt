@@ -17,7 +17,7 @@ import com.example.recipe.viewmodal.ReciepeViewModal
 import com.example.recipe.viewmodal.ViewModalFactory
 
 
-class ReciepeFragment : Fragment()
+class ReciepeFragment(val reciepeid: String) : Fragment()
 {
     private lateinit var sampleViewModal:ReciepeViewModal
     private lateinit var binding: FullRecipeBinding
@@ -39,7 +39,7 @@ class ReciepeFragment : Fragment()
     }
     private fun observeChange() {
 
-        sampleViewModal.getReciepeParticular("52807")
+        sampleViewModal.getReciepeParticular(reciepeid)
         sampleViewModal.reciepe.observe(this, {
             println(" this data " + sampleViewModal.reciepe.value.toString())
             val meal  = sampleViewModal.reciepe.value
