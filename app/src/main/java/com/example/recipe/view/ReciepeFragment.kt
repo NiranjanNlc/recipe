@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import com.bumptech.glide.Glide
 import com.example.recipe.R
+import com.example.recipe.databinding.ContentScrollingBinding
 import com.example.recipe.databinding.FullRecipeBinding
 import com.example.recipe.modal.dataItem.Meal
 import com.example.recipe.modal.repo.RecipeRepo
@@ -21,6 +22,7 @@ class ReciepeFragment : Fragment()
 {
     private lateinit var sampleViewModal:ReciepeViewModal
     private lateinit var binding: FullRecipeBinding
+    private lateinit var contentBinding: ContentScrollingBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -32,6 +34,7 @@ class ReciepeFragment : Fragment()
     ): View?
     {
         binding= DataBindingUtil.setContentView(requireActivity(),R.layout.full_recipe)
+       // contentBinding=DataBindingUtil.setContentView(requireActivity(),R.layout.content_scrolling)
            sampleViewModal= initialiseViewModal()
           observeChange()
         return inflater.inflate(R.layout.full_recipe, container, false)
@@ -58,6 +61,8 @@ class ReciepeFragment : Fragment()
     private fun setTheUi( meal: Meal)
     {
        setImage( meal.strMealThumb)
+      binding.instructions.text = meal.strInstructions
+
     }
 
     private fun setImage(strMealThumb: String)
