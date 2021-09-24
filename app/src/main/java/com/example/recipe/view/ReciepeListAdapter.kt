@@ -10,16 +10,25 @@ import com.bumptech.glide.Glide
 import com.example.recipe.databinding.ItemRecipeBinding
 import com.example.recipe.modal.dataItem.MealItem
 
-class ReciepeListAdapter(val context : Context):
+class ReciepeListAdapter constructor(val context : Context, val itemClickListener: ItemClickListener):
     ListAdapter<MealItem,ReciepeListAdapter.RecipeListViewHolder> (MEAL_COMPARATOR)
 {
+    interface ItemClickListener{
+        fun onItemClick(position: Int)
+        fun onLongClick(position: Int)
+    }
 
-    class RecipeListViewHolder(var items: ItemRecipeBinding) : RecyclerView.ViewHolder(items.root)
+   inner  class RecipeListViewHolder(var items: ItemRecipeBinding): RecyclerView.ViewHolder(items.root)
     {
-        fun bind(mealItem: MealItem)
+        init {
+            items.root.setOnClickListener(itemClickListener)
+            }
+                fun bind(mealItem: MealItem)
         {
             items.items = mealItem
+
         }
+
     }
 
     companion object {

@@ -14,7 +14,7 @@ public interface RetrofitService {
 
     @GET("feeds/list?start=0&limit=18&tag=list.recipe.popular")
     fun getReciepe(): retrofit2.Call<List<Map<String, Any>>>
-    @GET("filter.php?a=Indian")
+    @GET("filter.php?a=Canadian")
     fun getReciepeList(): retrofit2.Call<MealList>
     @GET("lookup.php")
     fun getReciepeParticlular( @Query("i") reciepe: String?): retrofit2.Call<Reciepe>

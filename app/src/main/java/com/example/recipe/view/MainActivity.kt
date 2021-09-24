@@ -14,7 +14,7 @@ import com.example.recipe.modal.reterofit.RetrofitService
 import com.example.recipe.viewmodal.ReciepeViewModal
 import com.example.recipe.viewmodal.ViewModalFactory
 
-class MainActivity : AppCompatActivity()
+class MainActivity : AppCompatActivity(),ReciepeListAdapter.ItemClickListener
 {
     private lateinit var binding: ReciepeListBinding
     private lateinit var mainBinding: ActivityMainBinding
@@ -38,7 +38,7 @@ class MainActivity : AppCompatActivity()
     private fun initaliseRecipeList() {
         binding = DataBindingUtil.setContentView(this, R.layout.reciepe_list)
         sampleViewModal = initialiseViewModal()
-        adapter = ReciepeListAdapter(this)
+        adapter = ReciepeListAdapter(this,this)
         bindData()
         observeChange()
         initRecyclerView()
@@ -73,8 +73,16 @@ class MainActivity : AppCompatActivity()
         binding.browserRecycler.layoutManager = GridLayoutManager(this,2) as RecyclerView.LayoutManager?
        // binding.browserRecycler.setHasFixedSize(true)
         binding.browserRecycler.adapter=   adapter
-        binding.browserRecycler.setItemViewCacheSize(2)
+        binding.browserRecycler.setItemViewCacheSize(4)
+        adapter.submitList(sampleViewModal.reciepList.value?.meals?.take(9))
+       // adapter.
+    }
 
-        adapter.submitList(sampleViewModal.reciepList.value?.meals?.take(1))
+    override fun onItemClick(position: Int) {
+        TODO("Not yet implemented")
+    }
+
+    override fun onLongClick(position: Int) {
+        TODO("Not yet implemented")
     }
 }
