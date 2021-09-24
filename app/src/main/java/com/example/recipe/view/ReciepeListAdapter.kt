@@ -1,14 +1,16 @@
 package com.example.recipe.view
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.recipe.databinding.ItemRecipeBinding
 import com.example.recipe.modal.dataItem.MealItem
 
-class ReciepeListAdapter:
+class ReciepeListAdapter(val context : Context):
     ListAdapter<MealItem,ReciepeListAdapter.RecipeListViewHolder> (MEAL_COMPARATOR)
 {
 
@@ -47,6 +49,7 @@ class ReciepeListAdapter:
       val mealItem = getItem(position)
       println( " see thid " + mealItem.strMeal)
       holder.bind(mealItem)
+       Glide.with(context).load(mealItem.strMealThumb).into(holder.items.browserCellImage)
      //  holder.bind(getItem(position))
       //holder.items.items = getItem(position)
     //  holder.items.items = getItem(position)

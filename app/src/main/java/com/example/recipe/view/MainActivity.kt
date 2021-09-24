@@ -3,6 +3,7 @@ package com.example.recipe.view
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.recipe.R
@@ -18,11 +19,11 @@ class MainActivity : AppCompatActivity()
     private lateinit var binding: ReciepeListBinding
     private lateinit var mainBinding: ActivityMainBinding
     private lateinit var sampleViewModal: ReciepeViewModal
-    private var adapter:ReciepeListAdapter = ReciepeListAdapter()
+    private lateinit var adapter:ReciepeListAdapter
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        //initaliseRecipeList()
-        setFragmentForFullRecipe()
+        initaliseRecipeList()
+    //    setFragmentForFullRecipe()
     }
 
     private fun setFragmentForFullRecipe()
@@ -37,6 +38,7 @@ class MainActivity : AppCompatActivity()
     private fun initaliseRecipeList() {
         binding = DataBindingUtil.setContentView(this, R.layout.reciepe_list)
         sampleViewModal = initialiseViewModal()
+        adapter = ReciepeListAdapter(this)
         bindData()
         observeChange()
         initRecyclerView()
@@ -68,7 +70,7 @@ class MainActivity : AppCompatActivity()
     private fun initRecyclerView()
     {
         print(" recycler view initiated")
-        binding.browserRecycler.layoutManager = LinearLayoutManager(this) as RecyclerView.LayoutManager?
+        binding.browserRecycler.layoutManager = GridLayoutManager(this,2) as RecyclerView.LayoutManager?
        // binding.browserRecycler.setHasFixedSize(true)
         binding.browserRecycler.adapter=   adapter
         binding.browserRecycler.setItemViewCacheSize(2)
