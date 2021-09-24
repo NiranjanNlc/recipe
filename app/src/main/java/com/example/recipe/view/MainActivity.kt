@@ -19,14 +19,13 @@ class MainActivity : AppCompatActivity(),ReciepeListAdapter.ItemClickListener
     private lateinit var mainBinding: ActivityMainBinding
     private lateinit var sampleViewModal: ReciepeViewModal
     private lateinit var adapter:ReciepeListAdapter
-    private lateinit var reciepeid: String;
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         initaliseRecipeList()
     //    setFragmentForFullRecipe()
     }
 
-    private fun setFragmentForFullRecipe()
+    private fun setFragmentForFullRecipe(reciepeid: String)
     {
         mainBinding = DataBindingUtil.setContentView(this, R.layout.activity_main)
         val transaction = getSupportFragmentManager().beginTransaction();
@@ -78,14 +77,10 @@ class MainActivity : AppCompatActivity(),ReciepeListAdapter.ItemClickListener
        // adapter.
     }
 
-    override fun onItemClick(position: Int)
+    override fun onItemClick(position: String)
     {
-        setFragmentForFullRecipe()
+        setFragmentForFullRecipe(position)
     }
 
-    override fun getPosition(position: String)
-    {
-        reciepeid = position.toString();
-    }
 
 }

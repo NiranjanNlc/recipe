@@ -15,17 +15,15 @@ class ReciepeListAdapter constructor(val context : Context, val itemClickListene
 {
 
     interface ItemClickListener{
-        fun onItemClick(position: Int)
-        fun getPosition(position: String)
+        fun onItemClick(position: String)
     }
 
    inner  class RecipeListViewHolder(var items: ItemRecipeBinding): RecyclerView.ViewHolder(items.root)
     {
         init {
             items.root.setOnClickListener{
-                items.items?.idMeal?.let { it1 -> itemClickListener.getPosition(it1) }
-                itemClickListener.onItemClick(adapterPosition)
-            }
+                items.items?.idMeal?.let { it1 -> itemClickListener.onItemClick(it1) }
+             }
             }
                 fun bind(mealItem: MealItem)
         {
@@ -63,9 +61,6 @@ class ReciepeListAdapter constructor(val context : Context, val itemClickListene
       println( " see thid " + mealItem.strMeal)
       holder.bind(mealItem)
        Glide.with(context).load(mealItem.strMealThumb).into(holder.items.browserCellImage)
-     //  holder.bind(getItem(position))
-      //holder.items.items = getItem(position)
-    //  holder.items.items = getItem(position)
       holder.items.executePendingBindings()
   }
 
