@@ -5,7 +5,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
+import com.bumptech.glide.Glide
 import com.example.recipe.R
+import com.example.recipe.databinding.FullRecipeBinding
+import com.example.recipe.modal.dataItem.Meal
 import com.example.recipe.modal.repo.RecipeRepo
 import com.example.recipe.modal.reterofit.RetrofitService
 import com.example.recipe.util.InstructionFormatter
@@ -16,7 +20,7 @@ import com.example.recipe.viewmodal.ViewModalFactory
 class ReciepeFragment : Fragment()
 {
     private lateinit var sampleViewModal:ReciepeViewModal
-    private lateinit var binding:
+    private lateinit var binding: FullRecipeBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -27,6 +31,7 @@ class ReciepeFragment : Fragment()
         savedInstanceState: Bundle?
     ): View?
     {
+        binding= DataBindingUtil.setContentView(requireActivity(),R.layout.full_recipe)
            sampleViewModal= initialiseViewModal()
           observeChange()
         return inflater.inflate(R.layout.full_recipe, container, false)
@@ -43,15 +48,20 @@ class ReciepeFragment : Fragment()
             println(" this data " + sampleViewModal.reciepe.value.toString())
             val meal  = sampleViewModal.reciepe.value
             if (meal != null) {
-                setTheUi()
+                setTheUi(meal.meals[0])
                 InstructionFormatter.formatInstruction(meal.meals[0])
             }
         }
         )
     }
 
-    private fun setTheUi() {
+    private fun setTheUi( meal: Meal)
+    {
+       setImage( meal.strMealThumb)
+    }
 
-
+    private fun setImage(strMealThumb: String)
+    {
+        context?.let { Glide.with(it).load(strMealThumb).into(binding.expandedImage) };
     }
 }

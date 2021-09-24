@@ -73,6 +73,8 @@ dependencies {
     //Material Chips
     //implementation 'com.github.karanatwal:MaterialChipsInput:2.0.0'
 
+    //picaso nor , glide
+    implementation 'com.github.bumptech.glide:glide:4.10.0'
 
 
 
