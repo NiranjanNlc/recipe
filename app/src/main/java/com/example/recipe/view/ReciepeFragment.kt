@@ -61,6 +61,8 @@ class ReciepeFragment : Fragment()
     private fun setTheUi( meal: Meal)
     {
        setImage( meal.strMealThumb)
+        binding.toolbarLayout.title = meal.strMeal
+        binding.toolbarLayout.setCollapsedTitleTextColor(1222222222)
       binding.instructions.text = meal.strInstructions
 
     }
