@@ -78,8 +78,9 @@ class MainActivity : AppCompatActivity(),ReciepeListAdapter.ItemClickListener
        // adapter.
     }
 
-    override fun onItemClick(position: Int) {
-        TODO("Not yet implemented")
+    override fun onItemClick(position: Int)
+    {
+        setFragmentForFullRecipe()
     }
 
     override fun onLongClick(position: Int) {

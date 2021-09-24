@@ -21,7 +21,9 @@ class ReciepeListAdapter constructor(val context : Context, val itemClickListene
    inner  class RecipeListViewHolder(var items: ItemRecipeBinding): RecyclerView.ViewHolder(items.root)
     {
         init {
-            items.root.setOnClickListener(itemClickListener)
+            items.root.setOnClickListener{
+                itemClickListener.onItemClick(adapterPosition)
+            }
             }
                 fun bind(mealItem: MealItem)
         {
