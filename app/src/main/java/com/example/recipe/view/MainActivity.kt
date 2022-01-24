@@ -47,7 +47,7 @@ class MainActivity : AppCompatActivity(),ReciepeListAdapter.ItemClickListener
         sampleViewModal.getReciepeList()
         sampleViewModal.reciepList.observe(this, {
             println(" this data " + sampleViewModal.reciepList.value.toString())
-            adapter.submitList(it.meals.take(4))
+            adapter.submitList(it.meals.take(16))
         })
         sampleViewModal.getReciepeParticular("52807")
 //        sampleViewModal.reciepe.observe(this, {
