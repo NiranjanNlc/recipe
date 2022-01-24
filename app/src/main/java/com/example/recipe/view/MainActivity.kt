@@ -2,6 +2,7 @@ package com.example.recipe.view
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isVisible
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -48,6 +49,7 @@ class MainActivity : AppCompatActivity(),ReciepeListAdapter.ItemClickListener
         sampleViewModal.reciepList.observe(this, {
             println(" this data " + sampleViewModal.reciepList.value.toString())
             adapter.submitList(it.meals.take(16))
+            binding.browserProgress.isVisible =  false
         })
         sampleViewModal.getReciepeParticular("52807")
 //        sampleViewModal.reciepe.observe(this, {
