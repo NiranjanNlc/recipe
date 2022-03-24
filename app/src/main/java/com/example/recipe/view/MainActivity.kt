@@ -58,8 +58,7 @@ class MainActivity : AppCompatActivity(), ReciepeListAdapter.ItemClickListener {
 
     private fun initialiseViewModal(): ReciepeViewModal {
         val repository = RecipeRepo(RetrofitService.getInstance())
-        val sampleViewModal = ViewModalFactory(repository).create(ReciepeViewModal::class.java)
-        return sampleViewModal
+        return ViewModalFactory(repository).create(ReciepeViewModal::class.java)
     }
 
     private fun bindData() {

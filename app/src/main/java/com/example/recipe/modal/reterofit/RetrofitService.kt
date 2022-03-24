@@ -10,7 +10,7 @@ import retrofit2.http.GET
 import retrofit2.http.Query
 
 
-public interface RetrofitService {
+interface RetrofitService {
 
     @GET("feeds/list?start=0&limit=18&tag=list.recipe.popular")
     fun getReciepe(): retrofit2.Call<List<Map<String, Any>>>
@@ -26,7 +26,7 @@ public interface RetrofitService {
 
         var retrofitService: RetrofitService? = null
 
-        public fun getInstance(): RetrofitService {
+        fun getInstance(): RetrofitService {
 
             if (retrofitService == null) {
                 retrofitService = createReterofit()

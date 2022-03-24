@@ -9,12 +9,12 @@ import androidx.room.Update
 import com.example.recipe.modal.data.RecipeItem
 
 @Dao
-interface ReciepeDao {
+interface RecipeDao {
     @Insert(onConflict = REPLACE)
-    fun save(reciepe: RecipeItem)
+    fun save(recipe: RecipeItem)
 
     @Update
-    fun update(reciepe: RecipeItem)
+    fun update(recipe: RecipeItem)
 
     @Query("SELECT * FROM  reciepe ORDER BY name ASC")
     fun getAlphabetizedWords(): LiveData<List<RecipeItem>>

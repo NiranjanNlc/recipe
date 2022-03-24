@@ -6,9 +6,9 @@ import com.example.recipe.modal.repo.RecipeRepo
 
 class ViewModalFactory(private val repository: RecipeRepo) : ViewModelProvider.Factory {
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        println(" Inn view odal factory")
+        println(" Inn view modal factory")
         if (modelClass.isAssignableFrom(ReciepeViewModal::class.java)) {
-            println("Assighnabke class")
+            println("Assignable class")
             @Suppress("UNCHECKED_CAST")
             return ReciepeViewModal(repository) as T
         }

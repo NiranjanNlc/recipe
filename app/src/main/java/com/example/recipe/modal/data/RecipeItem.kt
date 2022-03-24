@@ -2,7 +2,6 @@ package com.example.recipe.modal.data
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import androidx.room.TypeConverter
 
 @Entity(tableName = "reciepe")
 data class RecipeItem(
