@@ -14,23 +14,21 @@ import com.example.recipe.modal.reterofit.RetrofitService
 import com.example.recipe.viewmodal.ReciepeViewModal
 import com.example.recipe.viewmodal.ViewModalFactory
 
-class MainActivity : AppCompatActivity(),ReciepeListAdapter.ItemClickListener
-{
+class MainActivity : AppCompatActivity(), ReciepeListAdapter.ItemClickListener {
     private lateinit var binding: ReciepeListBinding
     private lateinit var mainBinding: ActivityMainBinding
     private lateinit var sampleViewModal: ReciepeViewModal
-    private lateinit var adapter:ReciepeListAdapter
+    private lateinit var adapter: ReciepeListAdapter
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         initaliseRecipeList()
-    //    setFragmentForFullRecipe()
+        //    setFragmentForFullRecipe()
     }
 
-    private fun setFragmentForFullRecipe(reciepeid: String)
-    {
+    private fun setFragmentForFullRecipe(reciepeid: String) {
         mainBinding = DataBindingUtil.setContentView(this, R.layout.activity_main)
         val transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.contentContainer,ReciepeFragment(reciepeid));
+        transaction.replace(R.id.contentContainer, ReciepeFragment(reciepeid));
         transaction.addToBackStack(null);
         transaction.commit();
     }
@@ -38,7 +36,7 @@ class MainActivity : AppCompatActivity(),ReciepeListAdapter.ItemClickListener
     private fun initaliseRecipeList() {
         binding = DataBindingUtil.setContentView(this, R.layout.reciepe_list)
         sampleViewModal = initialiseViewModal()
-        adapter = ReciepeListAdapter(this,this)
+        adapter = ReciepeListAdapter(this, this)
         bindData()
         observeChange()
         initRecyclerView()
@@ -49,7 +47,7 @@ class MainActivity : AppCompatActivity(),ReciepeListAdapter.ItemClickListener
         sampleViewModal.reciepList.observe(this, {
             println(" this data " + sampleViewModal.reciepList.value.toString())
             adapter.submitList(it.meals.take(16))
-            binding.browserProgress.isVisible =  false
+            binding.browserProgress.isVisible = false
         })
         sampleViewModal.getReciepeParticular("52807")
 //        sampleViewModal.reciepe.observe(this, {
@@ -63,24 +61,23 @@ class MainActivity : AppCompatActivity(),ReciepeListAdapter.ItemClickListener
         val sampleViewModal = ViewModalFactory(repository).create(ReciepeViewModal::class.java)
         return sampleViewModal
     }
-    private fun bindData()
-    {  
-        binding.lifecycleOwner=this
-    }
- 
-    private fun initRecyclerView()
-    {
-        print(" recycler view initiated")
-        binding.browserRecycler.layoutManager = GridLayoutManager(this,2) as RecyclerView.LayoutManager?
-       // binding.browserRecycler.setHasFixedSize(true)
-        binding.browserRecycler.adapter=   adapter
-        binding.browserRecycler.setItemViewCacheSize(4)
-        adapter.submitList(sampleViewModal.reciepList.value?.meals?.take(9))
-       // adapter.
+
+    private fun bindData() {
+        binding.lifecycleOwner = this
     }
 
-    override fun onItemClick(position: String)
-    {
+    private fun initRecyclerView() {
+        print(" recycler view initiated")
+        binding.browserRecycler.layoutManager =
+            GridLayoutManager(this, 2) as RecyclerView.LayoutManager?
+        // binding.browserRecycler.setHasFixedSize(true)
+        binding.browserRecycler.adapter = adapter
+        binding.browserRecycler.setItemViewCacheSize(4)
+        adapter.submitList(sampleViewModal.reciepList.value?.meals?.take(9))
+        // adapter.
+    }
+
+    override fun onItemClick(position: String) {
         setFragmentForFullRecipe(position)
     }
 

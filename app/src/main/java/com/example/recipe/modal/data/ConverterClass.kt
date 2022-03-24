@@ -7,13 +7,13 @@ import com.google.gson.reflect.TypeToken
 import java.lang.reflect.Type
 
 
-class ConverterClass
-{
+class ConverterClass {
     @TypeConverter
     fun ingredientlistToJson(value: List<Ingredient>?) = Gson().toJson(value)
 
     @TypeConverter
-    fun jsonToingredientList(value: String) = Gson().fromJson(value, Array<Ingredient>::class.java).toList()
+    fun jsonToingredientList(value: String) =
+        Gson().fromJson(value, Array<Ingredient>::class.java).toList()
 
     @TypeConverter
     fun stringlistToJson(value: List<String>?) = Gson().toJson(value)

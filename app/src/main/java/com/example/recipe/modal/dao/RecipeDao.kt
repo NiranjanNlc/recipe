@@ -11,10 +11,10 @@ import com.example.recipe.modal.data.RecipeItem
 @Dao
 interface ReciepeDao {
     @Insert(onConflict = REPLACE)
-    fun save(reciepe:RecipeItem)
+    fun save(reciepe: RecipeItem)
 
     @Update
-    fun update(reciepe:RecipeItem)
+    fun update(reciepe: RecipeItem)
 
     @Query("SELECT * FROM  reciepe ORDER BY name ASC")
     fun getAlphabetizedWords(): LiveData<List<RecipeItem>>

@@ -14,10 +14,12 @@ public interface RetrofitService {
 
     @GET("feeds/list?start=0&limit=18&tag=list.recipe.popular")
     fun getReciepe(): retrofit2.Call<List<Map<String, Any>>>
+
     @GET("filter.php?a=Canadian")
     fun getReciepeList(): retrofit2.Call<MealList>
+
     @GET("lookup.php")
-    fun getReciepeParticlular( @Query("i") reciepe: String?): retrofit2.Call<Reciepe>
+    fun getReciepeParticlular(@Query("i") reciepe: String?): retrofit2.Call<Reciepe>
 
 
     companion object {
@@ -32,8 +34,7 @@ public interface RetrofitService {
             return retrofitService!!
         }
 
-        private fun createReterofit(): RetrofitService
-        {
+        private fun createReterofit(): RetrofitService {
             val retrofit = Retrofit.Builder()
                 .baseUrl(BaseUrl.FOODMEALAPI.url)
                 .addConverterFactory(GsonConverterFactory.create())
@@ -46,12 +47,10 @@ public interface RetrofitService {
         private fun createHttPRequest(): OkHttpClient {
             val httpClient = OkHttpClient.Builder()
             httpClient.addInterceptor { chain ->
-                val request = chain.request().
-                newBuilder()
-                .addHeader("x-rapidapi-host", "yummly2.p.rapidapi.com")
-                .addHeader("x-rapidapi-key", "undefined")
-                .addHeader("parameter", "value").
-                build()
+                val request = chain.request().newBuilder()
+                    .addHeader("x-rapidapi-host", "yummly2.p.rapidapi.com")
+                    .addHeader("x-rapidapi-key", "undefined")
+                    .addHeader("parameter", "value").build()
                 chain.proceed(request)
             }
 

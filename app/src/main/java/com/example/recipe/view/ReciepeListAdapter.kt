@@ -10,23 +10,25 @@ import com.bumptech.glide.Glide
 import com.example.recipe.databinding.ItemRecipeBinding
 import com.example.recipe.modal.dataItem.MealItem
 
-class ReciepeListAdapter constructor(val context : Context, val itemClickListener: ItemClickListener):
-    ListAdapter<MealItem,ReciepeListAdapter.RecipeListViewHolder> (MEAL_COMPARATOR)
-{
+class ReciepeListAdapter constructor(
+    val context: Context,
+    val itemClickListener: ItemClickListener
+) :
+    ListAdapter<MealItem, ReciepeListAdapter.RecipeListViewHolder>(MEAL_COMPARATOR) {
 
-    interface ItemClickListener{
+    interface ItemClickListener {
         fun onItemClick(position: String)
     }
 
-   inner  class RecipeListViewHolder(var items: ItemRecipeBinding): RecyclerView.ViewHolder(items.root)
-    {
+    inner class RecipeListViewHolder(var items: ItemRecipeBinding) :
+        RecyclerView.ViewHolder(items.root) {
         init {
-            items.root.setOnClickListener{
+            items.root.setOnClickListener {
                 items.items?.idMeal?.let { it1 -> itemClickListener.onItemClick(it1) }
-             }
             }
-                fun bind(mealItem: MealItem)
-        {
+        }
+
+        fun bind(mealItem: MealItem) {
             items.items = mealItem
 
         }
@@ -47,21 +49,21 @@ class ReciepeListAdapter constructor(val context : Context, val itemClickListene
         }
 
     }
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecipeListViewHolder
-    {
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecipeListViewHolder {
         println("On view create ")
         val inflater = LayoutInflater.from(parent.context)
         val binding = ItemRecipeBinding.inflate(inflater)
         return RecipeListViewHolder(binding)
 
     }
-  override fun onBindViewHolder(holder: RecipeListViewHolder, position: Int)
-  {
-      val mealItem = getItem(position)
-      println( " see thid " + mealItem.strMeal)
-      holder.bind(mealItem)
-       Glide.with(context).load(mealItem.strMealThumb).into(holder.items.browserCellImage)
-      holder.items.executePendingBindings()
-  }
+
+    override fun onBindViewHolder(holder: RecipeListViewHolder, position: Int) {
+        val mealItem = getItem(position)
+        println(" see thid " + mealItem.strMeal)
+        holder.bind(mealItem)
+        Glide.with(context).load(mealItem.strMealThumb).into(holder.items.browserCellImage)
+        holder.items.executePendingBindings()
+    }
 
 }
