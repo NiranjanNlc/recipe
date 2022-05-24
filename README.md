@@ -1,2 +1,2 @@
 # Recipe
-here goes the screenshot and ther
+Here goes the screenshot:
